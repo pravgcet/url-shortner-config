@@ -1,8 +1,0 @@
-namespace: urlshortner
-auth:
-  postgresPassword: mysecretpassword
-service:
-  type: NodePort
-  nodePorts:
-    postgresql: 30007
-
