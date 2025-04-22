@@ -1,0 +1,7 @@
+namespace: urlshortner
+auth:
+  rbac:
+    create: false
+  client:
+    secureTransport: false
+    enableAuthentication: false

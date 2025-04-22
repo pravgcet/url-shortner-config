@@ -1,0 +1,21 @@
+apiVersion: v2
+name: umbrella-chart
+version: 0.1.0
+dependencies:
+  - name: etcd
+    version: 11.2.4
+    namespace: urlshortner
+    repository: https://charts.bitnami.com/bitnami
+  - name: postgresql
+    version: 15.5.38
+    namespace: urlshortner
+    repository: https://charts.bitnami.com/bitnami
+  - name: redis
+    version: 20.10.0
+    namespace: urlshortner
+    repository: https://charts.bitnami.com/bitnami
+    
+#  - name: springboot-app
+#    version: 0.1.0
+#    repository: file://../springboot-app
+

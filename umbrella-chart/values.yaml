@@ -1,0 +1,20 @@
+postgresql:
+ namespace: urlshortner
+ auth:
+  postgresPassword: mysecretpassword
+ service:
+  type: NodePort
+  nodePorts:
+   postgresql: 30007
+
+etcd:
+ namespace: urlshortner
+ auth:
+  rbac:
+   rootPassword: etcdsecretpwd
+
+redis:
+ namespace: urlshortner
+ auth:
+  enabled: false
+  usePasswordFiles: false

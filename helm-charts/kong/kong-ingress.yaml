@@ -1,0 +1,31 @@
+# kong-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: url-shortner
+ namespace: urlshortner
+ annotations:
+   konghq.com/strip-path: "false"
+   konghq.com/plugins: kong-rate-limiter    # Plugin names referenced in KongPlugin resources
+   kubernetes.io/ingress.class: kong
+   konghq.com/methods: "GET, POST, PUT, DELETE"  
+spec:
+ ingressClassName: kong
+ rules:
+   - http:
+       paths:
+         - path: /writer
+           pathType: Prefix
+           backend:
+             service:
+               name: url-writer-url-shortner-writer   # Name of your K8s Service
+               port:
+                 number: 80    # Port exposed by your Service
+         - path: /reader
+           pathType: Prefix
+           backend:
+             service:
+               name: url-reader-url-shortner-reader   # Name of your K8s Service
+               port:
+                 number: 80    # Port exposed by your Service
+

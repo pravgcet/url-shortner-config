@@ -1,0 +1,13 @@
+# kong-plugins.yaml
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+ name: kong-rate-limiter     # Must match name in Ingress annotation
+ namespace: urlshortner
+ annotations:
+  kubernetes.io/ingress.class: kong
+config:
+ minute: 5     # Number of requests allowed per minute
+ limit_by: consumer
+ policy: local
+plugin: rate-limiting

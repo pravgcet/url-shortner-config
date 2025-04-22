@@ -1,0 +1,5 @@
+namespace: urlshortner
+proxy:
+ type: NodePort
+env:
+ database: "off"
