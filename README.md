@@ -15,3 +15,17 @@ The services are divided according to CQRS pattern.
 2. Postgres database.
 3. Redis for caching.
 4. Kong API gateway to route requests to reader and writer services.
+
+Commands to start:
+
+### 1. Install Etcd, Redis and Postgres
+`helm install all-services ./umbrella-chart --namespace urlshortner --create-namespace`
+
+`helm install url-writer ./url-shortner-writer -n urlshortner`
+
+`helm install url-reader ./url-shortner-reader -n urlshortner`
+
+`helm install kong kong/kong -n urlshortner --create-namespace --set proxy.type=NodePort --set env.database=off`
+
+`kubectl apply -f kong-ingress.yaml`
+
