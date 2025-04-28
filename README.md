@@ -5,6 +5,10 @@
 1. The shortened url can be of 8 - 12 characters long.
 2. The long url can be of lenght <= 1000 characters.
 
+### Related repositories
+1. [URL Writer service](https://github.com/pravgcet/url-shortner-writer)
+2. [URL Reader service](https://github.com/pravgcet/url-shortner-reader)
+
 ### Architecture.
 The services are divided according to CQRS pattern.
 - Writer service designed to handle conversion of long URL to short URL.
